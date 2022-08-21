@@ -9,7 +9,9 @@ const mode = process.env.MODE || process.env.NODE_ENV || 'development'
  */
 const config = {
   projectName: 'vue3taro',
+  date: '2022-8-21',
   framework: 'vue3',
+  compiler: 'webpack5',
   env: {
     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
   },
@@ -24,6 +26,16 @@ const config = {
   ],
   defineConstants: {
     'process.env.MODE': JSON.stringify(mode),
+  },
+  designWidth: 375,
+  deviceRatio: {
+    640: 2.34 / 2,
+    750: 1,
+    828: 1.81 / 2,
+    375: 2 / 1,
+  },
+  sass: {
+    data: '@import "@nutui/nutui-taro/dist/styles/variables.scss";',
   },
   mini: {
     postcss: {
@@ -52,6 +64,7 @@ const config = {
   h5: {
     publicPath: '/',
     staticDirectory: 'static',
+    esnextModules: ['nutui-taro'],
     postcss: {
       pxtransform: {
         enable: false,

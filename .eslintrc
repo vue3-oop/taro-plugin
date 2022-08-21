@@ -1,3 +1,7 @@
 {
-  "extends": "@antfu"
+  "extends": "@antfu",
+  "rules": {
+    "react/no-string-refs": "off",
+    "no-console": "off"
+  }
 }
