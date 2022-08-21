@@ -11,7 +11,9 @@ const config = {
   projectName: 'vue3taro',
   date: '2022-8-21',
   framework: 'vue3',
-  compiler: 'webpack5',
+  compiler: {
+    type: 'webpack5',
+  },
   env: {
     NODE_ENV: JSON.stringify(process.env.NODE_ENV),
   },

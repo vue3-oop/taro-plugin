@@ -35,13 +35,13 @@ export default (ctx: IPluginContext, config: Vue3OOPTaroPluginConfig) => {
             test: /\.tsx?$/,
             use: {
               babelLoader: {
-                loader: 'babel-loader',
+                loader: require.resolve('babel-loader'),
                 options: {
                   compact: false,
                 },
               },
               tsloader: {
-                loader: 'ts-loader',
+                loader: require.resolve('ts-loader'),
                 options: {
                   transpileOnly: true,
                 },
@@ -61,7 +61,7 @@ export default (ctx: IPluginContext, config: Vue3OOPTaroPluginConfig) => {
             ts: {
               use: {
                 hotLoader: {
-                  loader: '@vue3-oop/jsx-hot-loader',
+                  loader: require.resolve('@vue3-oop/jsx-hot-loader'),
                   after: 'tsloader',
                 },
               },
