@@ -9,4 +9,5 @@ export default defineBuildConfig({
   rollup: {
     emitCJS: true,
   },
+  externals: ['@tarojs/helper', '@tarojs/service'],
 })

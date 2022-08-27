@@ -1,8 +1,7 @@
-const path = require('path')
+import { loadEnv } from '@vue3-oop/taro-plugin'
 
-// 模式 区分环境
-const mode = process.env.MODE || process.env.NODE_ENV || 'development'
-
+const env = loadEnv()
+console.log(env)
 /**
  *
  * @type {import('@tarojs/taro/types/compile').IProjectConfig}
@@ -13,28 +12,32 @@ const config = {
   framework: 'vue3',
   compiler: {
     type: 'webpack5',
+    prebundle: {
+      include: ['vue'],
+    },
   },
-  env: {
-    NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-  },
-  alias: {
-    '@': path.resolve(__dirname, '..', 'src'),
-  },
-  sourceRoot: 'src',
-  outputRoot: `dist/${process.env.TARO_ENV}`,
   plugins: [
     '@tarojs/plugin-html',
     '@vue3-oop/taro-plugin',
   ],
-  defineConstants: {
-    'process.env.MODE': JSON.stringify(mode),
-  },
   designWidth: 375,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
     828: 1.81 / 2,
     375: 2 / 1,
+  },
+  sourceRoot: 'src',
+  outputRoot: 'dist',
+  copy: {
+    // 注意这里需要严格匹配
+    patterns: [
+      {
+        from: 'public/favicon.ico',
+        to: 'dist/favicon.ico',
+        // ignore: ['*.html'],
+      },
+    ],
   },
   sass: {
     data: '@import "@nutui/nutui-taro/dist/styles/variables.scss";',
@@ -64,8 +67,11 @@ const config = {
     },
   },
   h5: {
-    publicPath: '/',
-    staticDirectory: 'static',
+    publicPath: process.env.VUE_APP_BASE_URL,
+    router: {
+      basename: process.env.VUE_APP_BASE_ROUTE.replace(/\/$/, ''),
+      mode: 'browser',
+    },
     esnextModules: ['nutui-taro'],
     postcss: {
       pxtransform: {
@@ -78,6 +84,9 @@ const config = {
           generateScopedName: '[local]--[hash:base64:5]',
         },
       },
+    },
+    devServer: {
+      open: false,
     },
   },
 }

@@ -38,7 +38,7 @@
   "sideEffects": false,
   "scripts": {
     "build": "rimraf dist && unbuild",
-    "dev": "unbuild --stub",
+    "dev": "unbuild",
     "lint": "eslint .",
     "prepublishOnly": "nr build",
     "release": "bumpp --commit --push --tag && pnpm publish",
@@ -50,6 +50,9 @@
     "@antfu/eslint-config": "^0.26.1",
     "@antfu/ni": "^0.17.2",
     "@babel/types": "^7.18.10",
+    "@tarojs/helper": "3.5.3",
+    "@tarojs/service": "^3",
+    "@types/minimist": "^1.2.2",
     "@types/node": "^18.7.8",
     "bumpp": "^8.2.1",
     "eslint": "^8.22.0",
@@ -71,10 +74,12 @@
   },
   "dependencies": {
     "@babel/core": "^7",
-    "babel-loader": "^8",
-    "@tarojs/service": "*",
     "@vue3-oop/jsx-hot-loader": "^0.1.6",
+    "babel-loader": "^8",
+    "dotenv": "^16.0.1",
+    "dotenv-expand": "^8.0.3",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
+    "minimist": "^1.2.6",
     "ts-loader": "^9.3.1"
   }
 }

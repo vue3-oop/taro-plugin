@@ -8,6 +8,8 @@ import Taro from '@tarojs/taro'
 import { CountService } from '@/service/count.service'
 import { setup } from '@/setup'
 
+console.log(process.env.VUE_APP_MODE)
+
 // 全局服务通过根组件注入
 @Component({ providers: [CountService] })
 class App extends VueComponent {
