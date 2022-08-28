@@ -19,6 +19,7 @@ const config = {
   plugins: [
     '@tarojs/plugin-html',
     '@vue3-oop/taro-plugin',
+    '@tarojs/plugin-mock',
   ],
   designWidth: 375,
   deviceRatio: {
@@ -33,9 +34,9 @@ const config = {
     // 注意这里需要严格匹配
     patterns: [
       {
-        from: 'public/favicon.ico',
-        to: 'dist/favicon.ico',
-        // ignore: ['*.html'],
+        from: 'public/',
+        to: 'dist/',
+        ignore: ['**/index.html'],
       },
     ],
   },

@@ -1,21 +1,23 @@
 import '@abraham/reflection'
 import './theme/app.scss'
+import {http} from '@/api/http'
 
 import { createApp } from 'vue'
 
 import { Component, Hook, VueComponent } from 'vue3-oop'
-import Taro from '@tarojs/taro'
 import { CountService } from '@/service/count.service'
 import { setup } from '@/setup'
 
-console.log(process.env.VUE_APP_MODE)
+http.get('/abc').then(res => {
+  console.log(res)
+})
 
 // 全局服务通过根组件注入
 @Component({ providers: [CountService] })
 class App extends VueComponent {
   @Hook('Mounted')
   mounted() {
-    Taro.showToast({ title: 'mounted', duration: 3000 })
+    console.log('app mounted')
   }
 }
 

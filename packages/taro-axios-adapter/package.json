@@ -1,0 +1,57 @@
+{
+  "name": "@vue3-oop/taro-axios-adapter",
+  "version": "1.0.1",
+  "packageManager": "pnpm@7.0.0",
+  "keywords": [],
+  "homepage": "https://github.com/@vue3-oop/taro-plugin#readme",
+  "bugs": {
+    "url": "https://github.com/@vue3-oop/taro-plugin/issues"
+  },
+  "license": "MIT",
+  "author": "agileago <agileago@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/@vue3-oop/taro-plugin.git"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "unbuild",
+    "build": "rimraf dist && unbuild",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "@tarojs/taro": "^3.5.4",
+    "axios": "^0.27.2",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4",
+    "unbuild": "^0.8.9"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@tarojs/taro": "^3.5.4"
+  }
+}

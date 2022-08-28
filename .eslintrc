@@ -1,5 +1,6 @@
 {
   "extends": "@antfu",
+  "ignorePatterns": ["public"],
   "rules": {
     "react/no-string-refs": "off",
     "no-console": "off"

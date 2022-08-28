@@ -6,6 +6,8 @@ vue3-oop的taro插件，提供了一下功能
 
 1. 使用ts-loader编译ts
 2. babel配置
+3. 支持vue3-oop
+4. 支持类vue-cli开发模式
 
 ## 如何使用
 

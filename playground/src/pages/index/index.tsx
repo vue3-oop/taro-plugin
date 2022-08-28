@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import { Button } from '@tarojs/components'
-import Taro from '@tarojs/taro'
+import Taro, {useLoad} from '@tarojs/taro'
 import { SkipSelf } from 'injection-js'
 import { Component, Hook, Link, Mut, VueComponent } from 'vue3-oop'
 import { CountService } from '@/service/count.service'
-
-console.log(Button)
+import { MiniHook } from '@vue3-oop/taro-hooks'
 
 @Component()
 export default class Index extends VueComponent {
@@ -21,14 +20,13 @@ export default class Index extends VueComponent {
 
   @Link() btn: InstanceType<typeof Button>
 
-  @Hook('Mounted')
-  mounted() {
-    console.log(this.btn)
+  @MiniHook('Load')
+  load() {
+    console.log('load miniapp')
   }
 
   render() {
     const { countService } = this
-    console.log(<Button></Button>)
     return (
       <>
         <h2>当前数字： {countService.count}</h2>
