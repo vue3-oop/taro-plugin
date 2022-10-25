@@ -1,6 +1,6 @@
 {
   "name": "@vue3-oop/taro-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "packageManager": "pnpm@7.0.0",
   "keywords": [],
