@@ -108,10 +108,11 @@ export default (ctx: IPluginContext, config: Vue3OOPTaroPluginConfig) => {
 export function loadEnv(envDir = process.cwd(), prefixRE = /^VUE_APP_/) {
   const { fs, printLog, processTypeEnum, createDebug } = helper
   const contextPath = envDir
-  const ciArgs = minimist(process.argv.slice(2), { string: 'mode' })
+  const ciArgs = minimist(process.argv.slice(2), { string: 'mode', boolean: 'watch' })
 
   const mode = ciArgs.mode || process.env.NODE_ENV
   process.env.VUE_APP_MODE = mode
+  process.env.VUE_APP_WATCH = ciArgs.watch
 
   printLog(processTypeEnum.START, '读取env环境变量', mode)
 
